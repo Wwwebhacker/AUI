@@ -12,6 +12,7 @@ import java.util.List;
 public class WorkerRepository {
 
     private final DataStore dataStore;
+    private int id = 0;
 
     @Autowired
     public WorkerRepository(DataStore dataStore) {
@@ -23,6 +24,7 @@ public class WorkerRepository {
     }
 
     public void create(Worker entity) {
+        entity.setId(id++);
         dataStore.workerList.add(entity);
     }
 

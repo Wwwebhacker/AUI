@@ -5,6 +5,8 @@ import com.project.AUI_1.worker.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WorkerService {
     private final WorkerRepository workerRepository;
@@ -12,6 +14,10 @@ public class WorkerService {
     @Autowired
     public WorkerService(WorkerRepository workerRepository) {
         this.workerRepository = workerRepository;
+    }
+
+    public List<Worker> findAll() {
+        return workerRepository.findAll();
     }
 
     public Worker find(int id) {

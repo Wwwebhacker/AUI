@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class CompanyRepository {
     private final DataStore dataStore;
+    private int id = 0;
 
     @Autowired
     public CompanyRepository(DataStore dataStore) {
@@ -22,6 +23,7 @@ public class CompanyRepository {
     }
 
     public void create(Company entity) {
+        entity.setId(id++);
         dataStore.companyList.add(entity);
     }
 
