@@ -8,11 +8,11 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.AUI</groupId>
-	<artifactId>1</artifactId>
+	<groupId>com.project</groupId>
+	<artifactId>AUI_1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>1</name>
-	<description>AUI 1</description>
+	<name>AUI_1</name>
+	<description>AUI_1 description </description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
