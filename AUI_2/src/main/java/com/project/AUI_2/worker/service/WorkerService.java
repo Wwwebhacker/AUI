@@ -1,5 +1,6 @@
 package com.project.AUI_2.worker.service;
 
+import com.project.AUI_2.company.entity.Company;
 import com.project.AUI_2.worker.entity.Worker;
 import com.project.AUI_2.worker.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class WorkerService {
 
     public List<Worker> findAll() {
         return repository.findAll();
+    }
+    public List<Worker> findAll(Company company) {
+        return repository.findAllByCompany(company);
     }
 
     public Optional<Worker> find(Long id) {
