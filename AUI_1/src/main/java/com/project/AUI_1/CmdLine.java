@@ -28,6 +28,7 @@ public class CmdLine implements CommandLineRunner {
         System.out.println("Name: ");
         String name = in.nextLine();
 
+        print(companyService.findAll());
         System.out.println("Company id: ");
         int id = Integer.parseInt(in.nextLine());
         Company company = companyService.find(id);
@@ -40,6 +41,7 @@ public class CmdLine implements CommandLineRunner {
     }
 
     private void deleteWorker(){
+        print(workerService.findAll());
         System.out.println("Worker id: ");
         int id = Integer.parseInt(in.nextLine());
         Worker worker = workerService.find(id);
@@ -61,10 +63,16 @@ public class CmdLine implements CommandLineRunner {
 
         boolean exit = false;
 
+
+        System.out.println("x -> exit");
+        System.out.println("c -> companies");
+        System.out.println("w -> workers");
+        System.out.println("wc -> create worker");
+        System.out.println("wd -> delete worker");
         while (!exit){
             String cmd = in.nextLine();
             switch (cmd) {
-                case "exit" -> exit = true;
+                case "x" -> exit = true;
                 case "c" -> print(companyService.findAll());
                 case "w" -> print(workerService.findAll());
                 case "wc" -> createWorker();
