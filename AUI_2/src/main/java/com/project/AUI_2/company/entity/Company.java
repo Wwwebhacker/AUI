@@ -25,7 +25,7 @@ public class Company{
 
     private int age;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.REMOVE)
     @ToString.Exclude
     private List<Worker> workers;
 }

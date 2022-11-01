@@ -1,6 +1,7 @@
 package com.project.AUI_2.worker.service;
 
 import com.project.AUI_2.company.entity.Company;
+import com.project.AUI_2.company.repository.CompanyRepository;
 import com.project.AUI_2.worker.entity.Worker;
 import com.project.AUI_2.worker.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,18 @@ import java.util.Optional;
 @Service
 public class WorkerService {
     private final WorkerRepository repository;
+    private final CompanyRepository companyRepository;
 
     @Autowired
-    public WorkerService(WorkerRepository repository) {
+    public WorkerService(WorkerRepository repository, CompanyRepository companyRepository) {
         this.repository = repository;
+        this.companyRepository = companyRepository;
     }
 
     public List<Worker> findAll() {
         return repository.findAll();
     }
+
     public List<Worker> findAll(Company company) {
         return repository.findAllByCompany(company);
     }
@@ -30,9 +34,18 @@ public class WorkerService {
         return repository.findById(id);
     }
 
+    public Optional<Worker> find(Long workerId, Long companyId) {
+        Optional<Company> companyOptional = companyRepository.findById(companyId);
+        if (companyOptional.isPresent()) {
+            return repository.findByIdAndCompany(workerId, companyOptional.get());
+        }
+
+        return Optional.empty();
+    }
+
     @Transactional
-    public void create(Worker worker) {
-        repository.save(worker);
+    public Worker create(Worker worker) {
+        return repository.save(worker);
     }
 
     @Transactional

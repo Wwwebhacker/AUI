@@ -26,17 +26,14 @@ public class CompanyService {
         return repository.findById(id);
     }
 
-    @Transactional
     public Company create(Company company) {
         return repository.save(company);
     }
 
-    @Transactional
     public void delete(Long company) {
         repository.deleteById(company);
     }
 
-    @Transactional
     public void update(Company company) {
         repository.save(company);
     }

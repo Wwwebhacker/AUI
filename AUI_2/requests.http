@@ -1,3 +1,27 @@
+POST http://localhost:8080/api/companies/1/workers
+Content-Type: application/json
+
+{
+  "name": "New worker",
+  "age": 99
+}
+
+###
+PUT http://localhost:8080/api/companies/1/workers/7
+Content-Type: application/json
+
+{
+  "name": "Updated worker"
+}
+
+###
+DELETE http://localhost:8080/api/companies/1/workers/7
+
+###
+GET http://localhost:8080/api/companies/1/workers/3
+Accept: application/json
+
+###
 
 POST http://localhost:8080/api/companies
 Content-Type: application/json
@@ -16,10 +40,10 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/companies/7
+DELETE http://localhost:8080/api/companies/1
 
 ###
-GET http://localhost:8080/api/companies/1/workers
+GET http://localhost:8080/api/companies/2/workers
 Accept: application/json
 
 ###

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Table(name = "workers")
 @ToString
 @Getter
-
+@Setter
 public class Worker{
 
     @Id
@@ -24,8 +24,7 @@ public class Worker{
     private String name;
     private int age;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "company_id")
-    @ToString.Exclude
     private Company company;
 }
