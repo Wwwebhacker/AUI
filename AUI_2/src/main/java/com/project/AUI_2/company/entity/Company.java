@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name = "companies")
 @ToString
 @Getter
+@Setter
 public class Company{
 
     @Id

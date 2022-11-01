@@ -31,8 +31,8 @@ public class CompanyWorkerController {
     @GetMapping
     public ResponseEntity<GetCompanyWorkersResponse> getCompanyWorkers(@PathVariable("id") Long id){
         Optional<Company> companyOptional = companyService.find(id);
+        
         return companyOptional.map(value -> ResponseEntity.ok(GetCompanyWorkersResponse.entityToDtoMapper().apply(workerService.findAll(value))))
                 .orElseGet(() -> ResponseEntity.notFound().build());
-
     }
 }
