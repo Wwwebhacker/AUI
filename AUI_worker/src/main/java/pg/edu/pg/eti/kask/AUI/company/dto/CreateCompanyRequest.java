@@ -1,9 +1,7 @@
 package pg.edu.pg.eti.kask.AUI.company.dto;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import pg.edu.pg.eti.kask.AUI.company.entity.Company;
 
 import java.util.function.Function;
@@ -11,6 +9,8 @@ import java.util.function.Function;
 @Builder
 @ToString
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CreateCompanyRequest {
 
     private long id;

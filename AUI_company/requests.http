@@ -23,7 +23,7 @@ Accept: application/json
 
 ###
 
-POST http://localhost:8080/api/companies
+POST http://localhost:8081/api/companies
 Content-Type: application/json
 
 {
@@ -51,7 +51,7 @@ GET http://localhost:8080/api/companies/7
 Accept: application/json
 
 ###
-GET http://localhost:8080/api/companies
+GET http://localhost:8081/api/companies
 Accept: application/json
 
 ###

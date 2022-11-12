@@ -28,6 +28,7 @@ public class CompanyController {
 
     @PostMapping
     public ResponseEntity<Void> createCompany(@RequestBody CreateCompanyRequest request, UriComponentsBuilder builder) {
+        System.out.println(request);
         Company company = CreateCompanyRequest.dtoToEntityMapper().apply(request);
         company = companyService.create(company);
 

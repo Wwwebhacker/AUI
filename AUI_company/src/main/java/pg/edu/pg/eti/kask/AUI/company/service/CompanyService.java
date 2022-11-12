@@ -32,8 +32,9 @@ public class CompanyService {
 
     @Transactional
     public Company create(Company company) {
+        repository.save(company);
         companyEventRepository.create(company);
-        return repository.save(company);
+        return company;
     }
 
     @Transactional

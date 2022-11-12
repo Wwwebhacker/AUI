@@ -23,6 +23,10 @@ public class CompanyEventRepository {
     }
 
     public void create(Company company) {
-        restTemplate.postForLocation("/companies", CreateCompanyRequest.entityToDtoMapper().apply(company));
+        System.out.println(company);
+
+        CreateCompanyRequest createCompanyRequest = CreateCompanyRequest.entityToDtoMapper().apply(company);
+        System.out.println(createCompanyRequest);
+        restTemplate.postForLocation("/companies", createCompanyRequest);
     }
 }
