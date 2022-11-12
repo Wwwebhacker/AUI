@@ -50,18 +50,18 @@ public class CompanyController {
         return ResponseEntity.created(builder.pathSegment("api", "companies", "{id}").buildAndExpand(company.getId()).toUri()).build();
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Void> updateCompany(@RequestBody UpdateCompanyRequest request, @PathVariable("id") long id) {
-        Optional<Company> companyOptional = companyService.find(id);
-        if (companyOptional.isPresent()) {
-            UpdateCompanyRequest.dtoToEntityUpdater().apply(companyOptional.get(), request);
-            companyService.update(companyOptional.get());
-
-            return ResponseEntity.accepted().build();
-        }
-
-        return ResponseEntity.notFound().build();
-    }
+//    @PutMapping("{id}")
+//    public ResponseEntity<Void> updateCompany(@RequestBody UpdateCompanyRequest request, @PathVariable("id") long id) {
+//        Optional<Company> companyOptional = companyService.find(id);
+//        if (companyOptional.isPresent()) {
+//            UpdateCompanyRequest.dtoToEntityUpdater().apply(companyOptional.get(), request);
+//            companyService.update(companyOptional.get());
+//
+//            return ResponseEntity.accepted().build();
+//        }
+//
+//        return ResponseEntity.notFound().build();
+//    }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteCompany(@PathVariable("id") long id) {
