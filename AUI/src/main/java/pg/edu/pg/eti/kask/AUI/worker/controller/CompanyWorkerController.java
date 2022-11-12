@@ -1,4 +1,4 @@
-package pg.edu.pg.eti.kask.AUI.company.controller;
+package pg.edu.pg.eti.kask.AUI.worker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

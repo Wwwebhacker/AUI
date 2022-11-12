@@ -1,0 +1,20 @@
+POST http://localhost:8080/api/companies
+Content-Type: application/json
+
+{
+ "name": "New company",
+  "age": 99
+}
+
+###
+
+POST http://localhost:8080/api/companies/1/workers
+Content-Type: application/json
+
+{
+  "name": "New worker",
+  "age": 99
+}
+
+###
+
