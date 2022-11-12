@@ -15,23 +15,17 @@ public class InitData {
     private final CompanyService companyService;
 
     InitData(WorkerService workerService, CompanyService companyService) {
-        this.companyService = companyService;
         this.workerService = workerService;
+        this.companyService = companyService;
     }
 
     @PostConstruct
     private void init() {
-        Company company1 = Company.builder().name("Company").build();
-        Company company2 = Company.builder().name("Company").build();
-        System.out.println(company1);
-        System.out.println(company2);
-        companyService.create(company1);
-        companyService.create(company2);
 
-        Worker worker1 = Worker.builder().name("worker").company(company1).build();
-        Worker worker2 = Worker.builder().name("worker").company(company1).build();
-        Worker worker3 = Worker.builder().name("worker").company(company2).build();
-        Worker worker4 = Worker.builder().name("worker").company(company2).build();
+        Worker worker1 = Worker.builder().name("worker").build();
+        Worker worker2 = Worker.builder().name("worker").build();
+        Worker worker3 = Worker.builder().name("worker").build();
+        Worker worker4 = Worker.builder().name("worker").build();
 
         workerService.create(worker1);
         workerService.create(worker2);

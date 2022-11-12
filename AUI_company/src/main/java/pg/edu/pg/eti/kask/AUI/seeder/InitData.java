@@ -17,12 +17,12 @@ public class InitData {
 
     @PostConstruct
     private void init() {
-        Company company1 = Company.builder().name("Company").build();
-        Company company2 = Company.builder().name("Company").build();
-        System.out.println(company1);
-        System.out.println(company2);
-        companyService.create(company1);
-        companyService.create(company2);
+//        Company company1 = Company.builder().name("Company").build();
+//        Company company2 = Company.builder().name("Company").build();
+//        System.out.println(company1);
+//        System.out.println(company2);
+//        companyService.create(company1);
+//        companyService.create(company2);
 
 
     }

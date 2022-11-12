@@ -1,4 +1,4 @@
-package pg.edu.pg.eti.kask.AUI.company.dto;
+package pg.edu.pg.eti.kask.AUI.worker.dto;
 
 
 import lombok.Builder;
@@ -13,14 +13,14 @@ import java.util.function.Function;
 @Builder
 @ToString
 @Getter
-public class GetCompanyWorkersResponse {
+public class GetWorkersResponse {
 
     @Singular
-    private List<GetCompanyWorkersResponse.Worker> workers;
+    private List<GetWorkersResponse.Worker> workers;
 
-    public static Function<Collection<pg.edu.pg.eti.kask.AUI.worker.entity.Worker>, GetCompanyWorkersResponse> entityToDtoMapper() {
+    public static Function<Collection<pg.edu.pg.eti.kask.AUI.worker.entity.Worker>, GetWorkersResponse> entityToDtoMapper() {
         return workers -> {
-            GetCompanyWorkersResponseBuilder response = GetCompanyWorkersResponse.builder();
+            GetWorkersResponseBuilder response = GetWorkersResponse.builder();
             workers.stream().map(
                     worker -> Worker.builder()
                             .id(worker.getId())

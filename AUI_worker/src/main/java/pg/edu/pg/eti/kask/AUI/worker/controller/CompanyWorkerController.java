@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import pg.edu.pg.eti.kask.AUI.company.dto.CreateWorkerRequest;
-import pg.edu.pg.eti.kask.AUI.company.dto.GetCompanyWorkerResponse;
-import pg.edu.pg.eti.kask.AUI.company.dto.GetCompanyWorkersResponse;
-import pg.edu.pg.eti.kask.AUI.company.dto.UpdateWorkerRequest;
+import pg.edu.pg.eti.kask.AUI.worker.dto.CreateWorkerRequest;
+import pg.edu.pg.eti.kask.AUI.worker.dto.GetWorkerResponse;
+import pg.edu.pg.eti.kask.AUI.worker.dto.GetWorkersResponse;
+import pg.edu.pg.eti.kask.AUI.worker.dto.UpdateWorkerRequest;
 import pg.edu.pg.eti.kask.AUI.company.entity.Company;
 import pg.edu.pg.eti.kask.AUI.company.service.CompanyService;
 import pg.edu.pg.eti.kask.AUI.worker.entity.Worker;
@@ -29,17 +29,17 @@ public class CompanyWorkerController {
     }
 
     @GetMapping
-    public ResponseEntity<GetCompanyWorkersResponse> getWorkers(@PathVariable("id") Long id) {
+    public ResponseEntity<GetWorkersResponse> getWorkers(@PathVariable("id") Long id) {
         Optional<Company> companyOptional = companyService.find(id);
 
-        return companyOptional.map(value -> ResponseEntity.ok(GetCompanyWorkersResponse.entityToDtoMapper().apply(workerService.findAll(value))))
+        return companyOptional.map(value -> ResponseEntity.ok(GetWorkersResponse.entityToDtoMapper().apply(workerService.findAll(value))))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping({"{worker-id}"})
-    public ResponseEntity<GetCompanyWorkerResponse> getWorker(@PathVariable("worker-id") Long workerId, @PathVariable("id") Long id) {
+    public ResponseEntity<GetWorkerResponse> getWorker(@PathVariable("worker-id") Long workerId, @PathVariable("id") Long id) {
         return workerService.find(workerId, id)
-                .map(value -> ResponseEntity.ok(GetCompanyWorkerResponse.entityToDtoMapper().apply(value)))
+                .map(value -> ResponseEntity.ok(GetWorkerResponse.entityToDtoMapper().apply(value)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 

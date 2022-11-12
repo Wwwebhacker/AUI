@@ -18,12 +18,7 @@ import java.util.List;
 public class Company{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-
-    private String name;
-
-    private int age;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.REMOVE)
     @ToString.Exclude

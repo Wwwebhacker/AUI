@@ -1,4 +1,4 @@
-package pg.edu.pg.eti.kask.AUI.company.dto;
+package pg.edu.pg.eti.kask.AUI.worker.dto;
 
 import lombok.Getter;
 import pg.edu.pg.eti.kask.AUI.worker.entity.Worker;

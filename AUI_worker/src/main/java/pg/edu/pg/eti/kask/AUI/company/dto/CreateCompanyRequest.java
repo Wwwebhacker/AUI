@@ -13,11 +13,10 @@ import java.util.function.Function;
 @Getter
 public class CreateCompanyRequest {
 
-    private String name;
+    private long id;
 
-    private int age;
 
     public static Function<CreateCompanyRequest, Company> dtoToEntityMapper() {
-        return request -> Company.builder().name(request.getName()).age(request.getAge()).build();
+        return request -> Company.builder().id(request.getId()).build();
     }
 }

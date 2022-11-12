@@ -14,7 +14,7 @@ public class CompanyEventRepository {
     private RestTemplate restTemplate;
 
     @Autowired
-    public CompanyEventRepository(@Value("$aui.workers.url") String baseUrl) {
+    public CompanyEventRepository(@Value("${aui.workers.url}") String baseUrl) {
         restTemplate = new RestTemplateBuilder().rootUri(baseUrl).build();
     }
 
