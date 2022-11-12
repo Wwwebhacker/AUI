@@ -67,7 +67,7 @@ public class CompanyController {
     public ResponseEntity<Void> deleteCompany(@PathVariable("id") long id) {
         Optional<Company> companyOptional = companyService.find(id);
         if (companyOptional.isPresent()) {
-            companyService.delete(companyOptional.get().getId());
+            companyService.delete(companyOptional.get());
 
             return ResponseEntity.accepted().build();
         }
