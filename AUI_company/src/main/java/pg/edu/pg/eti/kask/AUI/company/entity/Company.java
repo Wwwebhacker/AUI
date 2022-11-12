@@ -1,12 +1,12 @@
 package pg.edu.pg.eti.kask.AUI.company.entity;
 
-import pg.edu.pg.eti.kask.AUI.worker.entity.Worker;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
 
 @SuperBuilder
 @NoArgsConstructor
@@ -15,7 +15,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class Company{
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -25,7 +25,4 @@ public class Company{
 
     private int age;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.REMOVE)
-    @ToString.Exclude
-    private List<Worker> workers;
 }
