@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5482cfbc-d4f0-4b71-b669-eb9dfead21c3" name="Default Changelist" comment="" />
+    <list default="true" id="5482cfbc-d4f0-4b71-b669-eb9dfead21c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,19 +191,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/requests.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -230,8 +219,8 @@
       <item itemvalue="HTTP Request.requests#5" />
       <item itemvalue="HTTP Request.requests#7" />
       <item itemvalue="HTTP Request.requests#10" />
-      <item itemvalue="Spring Boot.Main" />
       <item itemvalue="HTTP Request.requests#1" />
+      <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -255,6 +244,7 @@
       <workItem from="1668247226669" duration="356000" />
       <workItem from="1668252322760" duration="257000" />
       <workItem from="1668252662868" duration="305000" />
+      <workItem from="1668253153203" duration="12000" />
     </task>
     <servers />
   </component>
