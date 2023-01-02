@@ -27,7 +27,7 @@ POST http://localhost:8080/api/companies
 Content-Type: application/json
 
 {
- "name": "New company",
+ "name": "New company2",
   "age": 99
 }
 
@@ -47,7 +47,7 @@ GET http://localhost:8080/api/companies/1/workers
 Accept: application/json
 
 ###
-GET http://localhost:8080/api/companies/7
+GET http://localhost:8080/api/companies/1
 Accept: application/json
 
 ###
