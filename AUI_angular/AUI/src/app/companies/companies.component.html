@@ -1,1 +1,16 @@
-<p>companies works!</p>
+<div class="row w-50">
+  <div class="col">
+    <div class="row my-2 p-2 bg-secondary text-white rounded" *ngFor="let company of companies">
+      <div class="col">{{company.id}}</div>
+      <div class="col">{{company.name}}</div>
+      <div class="col"><button class="btn btn-info" routerLink="/companies/create-edit" [queryParams]="{ id: company.id}">edit</button></div>
+      <div class="col"><button class="btn btn-danger" (click)="onDelete(company.id)">delete</button></div>
+    </div>
+  </div>
+</div>
+<div class="row my-5">
+  <div class="col">
+    <button class="btn btn-success" routerLink="/companies/create-edit">Add company</button>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -5,9 +5,10 @@ import { CompanyDetailComponent } from './company-detail/company-detail.componen
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'companies', component: CompaniesComponent,
-  children: [{path: ':id', component: CompanyDetailComponent}] }
+  {path: 'home', component: HomeComponent},
+  {path: 'companies', component: CompaniesComponent},
+  {path: 'companies/create-edit', component: CompanyDetailComponent}
+
 ];
 
 @NgModule({

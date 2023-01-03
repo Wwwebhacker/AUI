@@ -7,7 +7,7 @@ import { CompanyService } from '../company.service';
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent implements OnInit{
-    companies = undefined;
+    companies: any;
 
     constructor(private companyService: CompanyService){
 
@@ -19,7 +19,13 @@ export class CompaniesComponent implements OnInit{
 
     fetch(){
         this.companyService.getCompanies().subscribe((response) => {
-          console.log(response);
-        })
+          this.companies = response.companies;
+        });
+    }
+
+    onDelete(id: number){
+      this.companyService.delete(id).subscribe((response) => {
+        this.fetch();
+      });
     }
 }
