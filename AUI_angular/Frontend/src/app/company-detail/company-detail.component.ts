@@ -8,14 +8,14 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.css']
 })
-export class CompanyDetailComponent implements OnInit{
+export class CompanyDetailComponent implements OnInit {
 
-  id : number | undefined;
+  id: number | undefined;
   workers: any;
 
   companyForm = this.fb.group({
-    name: [{value: '',disabled: false}],
-    age: [{value: '',disabled: false}]
+    name: [{value: '', disabled: false}],
+    age: [{value: '', disabled: false}]
   })
 
   constructor(private router: Router,
@@ -24,33 +24,46 @@ export class CompanyDetailComponent implements OnInit{
               private fb: FormBuilder) {
 
   }
-  ngOnInit(){
+
+  ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if (params['id']){
-        this.fetch(params['id']);
+      if (params['id']) {
         this.id = params['id'];
+        this.fetchCompany();
+        this.fetchWorkers();
         this.companyForm.get('age')?.disable();
       }
     })
   }
 
-  fetch(id: number){
-    this.companyService.getCompany(id).subscribe(response => {
+  fetchCompany() {
+    if (!this.id) {
+      return
+    }
+
+    this.companyService.getCompany(this.id).subscribe(response => {
       const company = response;
       this.companyForm.setValue({name: company.name, age: company.age})
     })
-    this.companyService.getWorkers(id).subscribe(response => {
+
+  }
+
+  fetchWorkers() {
+    if (!this.id) {
+      return
+    }
+
+    this.companyService.getWorkers(this.id).subscribe(response => {
       this.workers = response.workers;
     })
   }
 
-
-  onSubmit(){
-    if (!this.id){
+  onSubmit() {
+    if (!this.id) {
       this.companyService.addCompany(this.companyForm.value).subscribe(response => {
         this.router.navigate(['companies']);
       });
-    }else {
+    } else {
       this.companyService.updateCompany(this.id, {name: this.companyForm.value.name}).subscribe(response => {
         this.router.navigate(['companies']);
       });
@@ -58,5 +71,16 @@ export class CompanyDetailComponent implements OnInit{
 
   }
 
+  onDeleteWorker(workerId: number) {
+    if (!this.id) {
+      return
+    }
+
+    this.companyService.deleteWorker(this.id, workerId).subscribe(response => {
+      if (this.id) {
+        this.fetchWorkers();
+      }
+    });
+  }
 
 }
